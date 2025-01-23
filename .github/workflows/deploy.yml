@@ -1,13 +1,8 @@
-name: Deploy React App
-
-on:
-  push:
-    branches:
-      - main
-
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write  # This grants write access to the repository contents
 
     steps:
       - name: Checkout Code
@@ -16,7 +11,7 @@ jobs:
       - name: Set Up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 18  # Use Node.js 18 to ensure structuredClone support
+          node-version: 18
 
       - name: Install Dependencies
         run: npm install
