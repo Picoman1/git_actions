@@ -3,7 +3,7 @@ name: Deploy React App
 on:
   push:
     branches:
-      - main  # Deploy whenever there's a push to the main branch
+      - main
 
 jobs:
   build-and-deploy:
@@ -13,10 +13,10 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v3
 
-      - name: Setup Node.js
+      - name: Set Up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 16  # Specify your Node.js version
+          node-version: 18  # Use Node.js 18 to ensure structuredClone support
 
       - name: Install Dependencies
         run: npm install
